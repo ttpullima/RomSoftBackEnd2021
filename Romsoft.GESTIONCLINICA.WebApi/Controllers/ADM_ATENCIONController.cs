@@ -32,6 +32,7 @@ namespace Romsoft.GESTIONCLINICA.WebApi.Controllers
                     if (resultado1.Item1 > 0)
                     {
                         jsonResponse.Message = Mensajes.RegistroSatisfactorio;
+                        jsonResponse.Data = resultado1.Item1;  //Retorna Item
                     }
                     else
                     {
