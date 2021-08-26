@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Romsoft.GESTIONCLINICA.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.SwaggerConfig.GetXmlCommentsPath">
+            <summary>
+            Obtenemos documentación del archivo xml
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Controllers.AccountController.Login(Romsoft.GESTIONCLINICA.DTO.TABLAS.SEG_USUARIO.LoginDTO)">
+            <summary>
+            Login Inicial del sistema
+            </summary>
+            <param name="Username">Dato del usuario</param>
+            <param name="Password">Password del Usuario</param>
+            <returns>Objeto loginDTO con datos del Usuario</returns>
+            <response code="200">estado OK</response>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Controllers.ADM_PACIENTEController.GetAllPacienteAtencionFilters(Romsoft.GESTIONCLINICA.DTO.TABLAS.ADM_PACIENTE.ADM_PACIENTEATENCIONReqDTO)">
+            <summary>
+            Consulta Datos Paciente/Atenciones
+            </summary>
+            <param name="t_dato">Dato a consultar</param>
+            <param name="tipo_dato">Tipo de dato a consultar F/P/H/C</param>
+            <returns>Objeto pacienteDTOList con datos del Paciente y Atenciones</returns>
+            <response code="200">estado OK</response>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Controllers.BaseController.Json(System.Object)">
+            <summary>  
+            Override the Json Result with Max integer JSON lenght  
+            </summary>  
+            <param name="data">Data</param>  
+            <returns>As JsonResult</returns>  
+        </member>
+        <member name="T:Romsoft.GESTIONCLINICA.WebApi.Core.SimplePostVariableParameterBinding">
+            <summary>
+            A Custom HttpParameterBinding to bind multiple parameters from request body
+            </summary>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.SimplePostVariableParameterBinding.ExecuteBindingAsync(System.Web.Http.Metadata.ModelMetadataProvider,System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>
+            Check for simple binding parameters in POST data. Bind POST
+            data as well as query string data
+            </summary>
+            <param name="metadataProvider"></param>
+            <param name="actionContext"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.SimplePostVariableParameterBinding.HookupParameterBinding(System.Web.Http.Controllers.HttpParameterDescriptor)">
+            <summary>
+            Method that implements parameter binding hookup to the global configuration object's
+            ParameterBindingRules collection delegate.
+            
+            This routine filters based on POST/PUT method status and simple parameter
+            types.
+            </summary>
+            <example>
+            GlobalConfiguration.Configuration.
+                  .ParameterBindingRules
+                  .Insert(0,SimplePostVariableParameterBinding.HookupParameterBinding);
+            </example>    
+            <param name="descriptor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.SimplePostVariableParameterBinding.TryReadBody(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Read and cache the request body
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.UtilsComun.GetDate(System.DateTime)">
+            <summary>
+            Convierte una fecha en una cadena con formato: dd/mm/yyyy.
+            </summary>
+            <param name="fecha"></param>
+            <returns>dd/mm/yyyy</returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.UtilsComun.ConvertToHour(System.DateTime)">
+            <summary>
+            Extrae la hora de una fecha en formato: hh:mm.
+            </summary>
+            <param name="fecha"></param>
+            <returns>hh:mm</returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.UtilsComun.GetDateTime(System.DateTime,System.Boolean)">
+            <summary>
+            Convierte una fecha en una cadena con formato: dd/mm/yyyy hh:mm:ss(includeSeconds = true), dd/mm/yyyy hh:mm
+            (includeSeconds = false).
+            </summary>
+            <param name="dateTime"></param>
+            <param name="includeSeconds"></param>
+            <returns>dd/mm/yyyy hh:mm:ss => (includeSeconds = true), dd/mm/yyyy hh:mm => (includeSeconds = false)</returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.UtilsComun.GetDateEnd(System.DateTime)">
+            <summary>
+            Retorna la fecha con la última hora del dia: dd/mm/yy 23:59:59.
+            </summary>
+            <param name="fecha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Romsoft.GESTIONCLINICA.WebApi.Core.UtilsComun.GetDateStar(System.DateTime)">
+            <summary>
+            Retorna la fecha con la hora inicial del dia: dd/mm/yy 0:0:0.
+            </summary>
+            <param name="fecha"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
