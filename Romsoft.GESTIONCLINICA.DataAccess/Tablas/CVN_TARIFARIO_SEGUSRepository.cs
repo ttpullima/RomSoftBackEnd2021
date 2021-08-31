@@ -207,6 +207,42 @@ namespace Romsoft.GESTIONCLINICA.DataAccess.Tablas
             return tarifario_segus;
         }
 
+        public IList<CVN_TARIFARIO_SEGUS_PRICE> GetPrice(CVN_TARIFARIO_SEGUS_PRICEReq entity)
+        {
+            List<CVN_TARIFARIO_SEGUS_PRICE> tarifario_segus = new List<CVN_TARIFARIO_SEGUS_PRICE>();
+            using (var comando = _database.GetStoredProcCommand(string.Format("{0}{1}", ConectionStringRepository.EsquemaName, "p_CVN_TARIFARIO_SEGUS_GetPrice")))
+            {
+                _database.AddInParameter(comando, "@id_categoria_pago", DbType.Int32, entity.id_categoria_pago);
+                _database.AddInParameter(comando, "@valor", DbType.String, entity.valor);
+                _database.AddInParameter(comando, "@c_idioma", DbType.String, entity.c_idioma);
+
+
+                using (var lector = _database.ExecuteReader(comando))
+                {
+                    while (lector.Read())
+                    {
+                        tarifario_segus.Add(new CVN_TARIFARIO_SEGUS_PRICE
+                        {
+
+                            id_tarifario_segus = lector.IsDBNull(lector.GetOrdinal("id_tarifario_segus")) ? default(int) : lector.GetInt32(lector.GetOrdinal("id_tarifario_segus")),
+                            c_codigo = lector.IsDBNull(lector.GetOrdinal("c_codigo")) ? default(string) : lector.GetString(lector.GetOrdinal("c_codigo")),
+                            t_descripcion = lector.IsDBNull(lector.GetOrdinal("t_descripcion")) ? default(string) : lector.GetString(lector.GetOrdinal("t_descripcion")),
+                            t_observacion = lector.IsDBNull(lector.GetOrdinal("t_observacion")) ? default(string) : lector.GetString(lector.GetOrdinal("t_observacion")),
+                            Precio = lector.IsDBNull(lector.GetOrdinal("Precio")) ? default(decimal) : lector.GetDecimal(lector.GetOrdinal("Precio")),
+                            cantidad = lector.IsDBNull(lector.GetOrdinal("cantidad")) ? default(int) : lector.GetInt32(lector.GetOrdinal("cantidad")),
+                            id_clasificacion_segus = lector.IsDBNull(lector.GetOrdinal("id_clasificacion_segus")) ? default(int) : lector.GetInt32(lector.GetOrdinal("id_clasificacion_segus")),
+                            t_clasificacion_segus= lector.IsDBNull(lector.GetOrdinal("t_clasificacion_segus")) ? default(string) : lector.GetString(lector.GetOrdinal("t_clasificacion_segus")),
+                            estado = lector.IsDBNull(lector.GetOrdinal("estado")) ? default(string) : lector.GetString(lector.GetOrdinal("estado"))
+                            
+
+                        });
+                    }
+                }
+            }
+
+            return tarifario_segus;
+        }
+
         public int Update(CVN_TARIFARIO_SEGUS entity)
         {
             int id;

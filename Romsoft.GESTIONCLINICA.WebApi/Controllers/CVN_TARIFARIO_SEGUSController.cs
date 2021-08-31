@@ -242,6 +242,29 @@ namespace Romsoft.GESTIONCLINICA.WebApi.Controllers
             return jsonResponse;
         }
 
+        [HttpPost]
+        public JsonResponse GetPrice(CVN_TARIFARIO_SEGUS_PRICEReqDTO tarifarioDTO)
+        {
+            var jsonResponse = new JsonResponse { Success = true };
+
+            try
+            {
+                var tarifario = MapperHelper.Map<CVN_TARIFARIO_SEGUS_PRICEReqDTO, CVN_TARIFARIO_SEGUS_PRICEReq>(tarifarioDTO);
+
+                var tarifaList = CVN_TARIFARIO_SEGUSBL.Instancia.GetPrice(tarifario);
+                var tarifaDTOList = MapperHelper.Map<IEnumerable<CVN_TARIFARIO_SEGUS_PRICE>, IEnumerable<CVN_TARIFARIO_SEGUS_PRICEDTO>>(tarifaList);
+                jsonResponse.Data = tarifaDTOList;
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                jsonResponse.Success = false;
+                jsonResponse.Message = Mensajes.IntenteloMasTarde;
+            }
+
+            return jsonResponse;
+        }
+
 
 
     }

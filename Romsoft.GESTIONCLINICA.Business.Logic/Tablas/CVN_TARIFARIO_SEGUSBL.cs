@@ -50,9 +50,17 @@ namespace Romsoft.GESTIONCLINICA.Business.Logic.Tablas
             return CVN_TARIFARIO_SEGUSRepository.Instancia.GetById(entity);
         }
 
+        public IList<CVN_TARIFARIO_SEGUS_PRICE> GetPrice(CVN_TARIFARIO_SEGUS_PRICEReq entity)
+        {
+            return CVN_TARIFARIO_SEGUSRepository.Instancia.GetPrice(entity);
+        }
+
+        //(CVN_TARIFARIO_SEGUS_PRICEReqDTO tarifarioDTO)
+
         public int Update(CVN_TARIFARIO_SEGUS entity)
         {
             return CVN_TARIFARIO_SEGUSRepository.Instancia.Update(entity);
         }
+
     }
 }
