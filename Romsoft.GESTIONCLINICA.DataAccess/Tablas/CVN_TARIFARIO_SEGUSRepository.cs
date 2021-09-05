@@ -233,7 +233,6 @@ namespace Romsoft.GESTIONCLINICA.DataAccess.Tablas
                             id_clasificacion_segus = lector.IsDBNull(lector.GetOrdinal("id_clasificacion_segus")) ? default(int) : lector.GetInt32(lector.GetOrdinal("id_clasificacion_segus")),
                             t_clasificacion_segus= lector.IsDBNull(lector.GetOrdinal("t_clasificacion_segus")) ? default(string) : lector.GetString(lector.GetOrdinal("t_clasificacion_segus")),
                             estado = lector.IsDBNull(lector.GetOrdinal("estado")) ? default(string) : lector.GetString(lector.GetOrdinal("estado"))
-                            
 
                         });
                     }

@@ -17,5 +17,6 @@ namespace Romsoft.GESTIONCLINICA.Entidades.CVN_TARIFARIO_SEGUS
         public int id_clasificacion_segus { get; set; }
         public string t_clasificacion_segus { get; set; }
         public string estado { get; set; }
+
     }
 }
