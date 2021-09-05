@@ -8,6 +8,7 @@ namespace Romsoft.GESTIONCLINICA.DTO.TABLAS.CVN_TARIFARIO_SEGUS
 {
     public class CVN_TARIFARIO_SEGUS_PRICEDTO
     {
+        //
         public int id_tarifario_segus { get; set; }
         public string c_codigo { get; set; }
         public string t_descripcion { get; set; }
